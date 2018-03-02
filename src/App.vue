@@ -17,8 +17,9 @@
     <!--<li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>-->
     <!--</ul>-->
     <div class="button">
-      <h2 v-for="machine in machines">{{machine.nom}}
-        <toggle-button v-model="machine.status" :value="false" width="100" height="35" color="dimgrey" :sync="true"
+      <h2 v-for="machine in machines" :class={color:machine.status}>
+        {{machine.nom}}
+        <toggle-button v-model="machine.status" @click= "machine.status = ! machine.status" :value="false" width="100" height="35" color="#B4AF91" :sync="true"
                        :labels="{checked: 'active', unchecked: 'inactive'}"/>
       </h2>
     </div>
@@ -73,6 +74,9 @@
   a {
     color: #42b983;
 
+  }
+  .color {
+    color : #B4AF91;
   }
 
 
